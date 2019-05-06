@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {HttpPlusConfig} from 'ng-http-plus';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'material-cnode';
+
+
+  constructor() {
+    HttpPlusConfig.builder()
+      .baseUrl('https://cnodejs.org/api/v1 ')
+      .addInterceptor({});
+  }
 }
