@@ -134,6 +134,41 @@
           }
         }
       }
+    },
+    "material-plus": {
+      "root": "projects/material-plus",
+      "sourceRoot": "projects/material-plus/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/material-plus/tsconfig.lib.json",
+            "project": "projects/material-plus/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/material-plus/src/test.ts",
+            "tsConfig": "projects/material-plus/tsconfig.spec.json",
+            "karmaConfig": "projects/material-plus/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/material-plus/tsconfig.lib.json",
+              "projects/material-plus/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "material-cnode"
