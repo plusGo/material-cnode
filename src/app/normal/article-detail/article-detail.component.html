@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row class="flex content-start">
+    <mat-icon matRipple (click)="back()">arrow_back_ios</mat-icon>
+    <span>{{article?.title}}</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div *ngIf="!article" class="flex content-center align-center">
+  <mat-spinner diameter="30"></mat-spinner>
+</div>
+<mat-card>
+
+  <mat-card-content>
+    <div class="flex space-around align-center" style="font-size: 12px">
+      <app-article-badge [article]="article"></app-article-badge>
+      <span>作者 {{article?.author?.loginname}}</span>
+      <span>发布于 {{article?.create_at | date:'yyyy-MM-dd'}}</span>
+      <span> {{article?.visit_count}}次浏览</span>
+    </div>
+    <div [innerHtml]="article?.content"></div>
+  </mat-card-content>
+</mat-card>

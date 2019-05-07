@@ -1,0 +1,20 @@
+<div *ngIf="rows.length === 0" class="flex content-center align-center">
+    <mat-spinner diameter="30"></mat-spinner>
+</div>
+<ng-container *ngFor="let article of rows">
+  <div (click)="goToDetail(article)" class="hn-card">
+    <div class="flex content-start">
+      <img style="width: 46px;height:46px;border-radius: 4px" [src]="article?.author?.avatar_url" alt="">
+
+      <div class="flex align-start" style="padding: 0 3px;width: 30px">
+        <app-article-badge [article]="article"></app-article-badge>
+      </div>
+      <div class="flex direction-column content-space-between" style="width: 100%">
+        <div class="card-title">{{article?.title | ellipsis}}</div>
+        <div style="font-size: 10px">{{article?.reply_count}}/{{article?.visit_count}}</div>
+      </div>
+    </div>
+
+  </div>
+</ng-container>
+

@@ -1,0 +1,21 @@
+<mat-sidenav-container class="example-container" (backdropClick)="sidenav.toggle()">
+  <mat-sidenav #sidenav  disableClose>
+    <p><button mat-button >Toggle</button></p>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row class="flex content-start">
+        <mat-icon matRipple  (click)="sidenav.toggle()">menu</mat-icon>
+        <span >Hn-Cnode</span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
+      <mat-tab *ngFor="let tab of tabs" [label]="tab?.label">
+        <ng-template matTabContent>
+          <app-article-list-inner [tab]="tab?.code"></app-article-list-inner>
+        </ng-template>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-sidenav-content>
+</mat-sidenav-container>

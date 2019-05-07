@@ -23,7 +23,6 @@ export class AppComponent {
       });
 
     topicClient.getTopics(1, '', 20).subscribe(res => {
-      debugger;
     });
   }
 }
